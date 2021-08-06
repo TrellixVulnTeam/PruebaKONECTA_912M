@@ -1,34 +1,36 @@
 
 <div class="row">
-    <div class="col-md-7">
-        <input type="text" id="buscar" placeholder="Dijite nombre, estado, especie o genero para buscar " class="form-control" name="personajesfiltro"  [(ngModel)]="personajesfiltro">
+    <div class="col-md-6  col-sm-12 search__bar">
+        <input type="text" id="buscar" placeholder="Escriba el nombre, estado, especie o genero para buscar " class="form-control shadow-none" name="personajesfiltro"  [(ngModel)]="personajesfiltro">
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-4 p-4" *ngFor="let personajes of personajes | personajes:personajesfiltro">
-        <div class="card mb-3" style="max-width: 6000px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img [src]="personajes.image" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h3 class="card-title">{{personajes.name}}</h3>
-                        <p class="card-text"><strong>{{personajes.status}}-{{personajes.species}}</strong></p>
-                        <p class="card-text">{{personajes.gender}}</p>
-
-                        <select class="form-control "  onchange="location = this.value;" >
-                            <option value="">Capitulos</option>
-                            <option *ngFor="let personajes of personajes.episode">
-                                {{personajes}}
-                            </option>
+    <div class="col-md-6 p-4" *ngFor="let personajes of personajes | personajes:personajesfiltro">
+        <section>
+            <div class="card mb-3">
+                <div class="row no-gutters card__item">
+                    <div class="col-md-4">
+                        <img [src]="personajes.image" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">{{personajes.name}}</h3>
+                            <p class="card-text"><strong>{{personajes.status}}-{{personajes.species}}</strong></p>
+                            <p class="card-text">{{personajes.gender}}</p>
+    
+                            <select class="form-control "  onchange="location = this.value;" >
+                                <option value="">Capitulos</option>
+                                <option *ngFor="let personajes of personajes.episode">
+                                    {{personajes}}
+                                </option>
+                                
+                            </select>
                             
-                        </select>
-                        
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>

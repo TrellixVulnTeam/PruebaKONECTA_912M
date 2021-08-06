@@ -29,9 +29,15 @@
             ],
             "styles": [
               "node_modules/bootswatch/dist/materia/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
+              
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -125,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "PruebaKonecta"
+  "defaultProject": "PruebaKonecta",
+  "cli": {
+    "analytics": "6d4bab64-4ae3-4deb-b90a-b2e47d0728fd"
+  }
 }

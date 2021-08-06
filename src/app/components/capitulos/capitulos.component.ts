@@ -8,7 +8,7 @@ import {Capitulos} from '../../Models/capitulos'
 })
 export class CapitulosComponent implements OnInit {
 
-  
+  capitulosseleccion = '';
 
   capitulos:any
   array2=[]
@@ -18,10 +18,12 @@ export class CapitulosComponent implements OnInit {
 
   ngOnInit(): void {
     this.Cargarcapitulos();
+    console.log(this.capitulosseleccion)
   }
 
+  //cargar capitulos
   Cargarcapitulos(){
-  
+  try {
     let array:any
     this.personajesservice.CargarCapitulos().subscribe(res=>{
     array = res
@@ -29,5 +31,13 @@ export class CapitulosComponent implements OnInit {
      this.capitulos = capitulos2
     })
    
+  } catch (error) {
+    console.error('so se pudieron obtener datos')
+  }
+   
+  }
+
+  capturarPersonaje(event:any){
+    console.log(event)
   }
 }

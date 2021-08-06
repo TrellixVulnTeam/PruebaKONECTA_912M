@@ -1,23 +1,27 @@
 <div class="row">
-    <div class="col-md-7">
-        <input type="text" id="buscar" placeholder="Dijite nombre o fecha de presentacion para buscar " class="form-control" name="capitulosfiltro"  [(ngModel)]="capitulosfiltro">
+    <div class="col-md-6  col-sm-12 search__bar">
+        <input type="text" id="buscar" placeholder="Escriba  nombre o fecha de presentacion para buscar "
+            class="form-control shadow-none" name="capitulosfiltro" [(ngModel)]="capitulosfiltro">
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4 p-4" *ngFor="let capitulos of capitulos | capitulos:capitulosfiltro">
-        <div class="card card-photo">
-            <div class="card-header">
-                <h4><strong>Nombre: </strong>{{capitulos.name}}</h4>
+    <div class="col-md-6 p-4" *ngFor="let capitulos of capitulos | capitulos:capitulosfiltro">
+        <section>
+            <div class="card mb-3">
+                <div class="row no-gutters card__item">
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h3 class="card-title">{{capitulos.name}}</h3>
+                            <p class="card-text"><strong> {{capitulos.air_date}}</strong></p>
+                            <p class="card-text">Presentation:</p>
+                            <select class="form-control " onchange="location = this.value;"  name="capitulosseleccion" [(ngModel)]="capitulosseleccion">
+                                <option value="">Personajes</option>
+                                <option *ngFor="let capitulos of capitulos.characters">{{capitulos}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h5><strong>Presentacion: </strong> {{capitulos.air_date}}</h5>
-                <select class="form-control " onchange="location = this.value;">
-                    <option value="">Personajes</option>
-                    <option   *ngFor="let capitulos of capitulos.characters" >{{capitulos}}</option>
-                </select>
-            </div>
-           
-        </div>
+        </section>
     </div>
-   
 </div>
