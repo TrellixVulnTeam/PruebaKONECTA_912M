@@ -9,9 +9,9 @@
     <div class="col-md-6 p-4" *ngFor="let personajes of personajes | personajes:personajesfiltro">
         <section>
             <div class="card mb-3">
-                <div class="row no-gutters card__item">
-                    <div class="col-md-4">
-                        <img [src]="personajes.image" class="card-img" alt="...">
+                <div class="row ">
+                    <div class="col-md-4" >
+                        <img [src]="personajes.image" id="img" style="   border-radius: 13px 13px 0px; " class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
