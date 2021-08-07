@@ -1,6 +1,7 @@
-<div class="row">
-    <div class="col-md-6  col-sm-12 search__bar">
-        <input type="text" id="buscar" placeholder="Escriba el nombre, estado, especie o genero para buscar " class="form-control shadow-none" name="personajesfiltro"  [(ngModel)]="personajesfiltro">
+<div class="row"  >
+   
+    <div class="col-md-6  col-sm-12 search__bar" >
+        <input type="text" id="buscar" style="border: 0px;" placeholder="Escriba el nombre, estado, especie o genero para buscar " class="form-control shadow-none" name="personajesfiltro"  [(ngModel)]="personajesfiltro">
     </div>
 </div>
 
@@ -18,7 +19,7 @@
                             <p class="card-text"><strong>{{personajes.status}}-{{personajes.species}}</strong></p>
                             <p class="card-text">{{personajes.gender}}</p>
     
-                            <select class="form-control "  onchange="location = this.value;" >
+                            <select class="form-control "  onchange="location = this.value;"   style="border-radius: 16px 16px 16px;">
                                 <option value="">Capitulos</option>
                                 <option *ngFor="let personajes of personajes.episode">
                                     {{personajes}}
