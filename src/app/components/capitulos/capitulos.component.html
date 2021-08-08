@@ -14,7 +14,7 @@
                             <h3 class="card-title">{{capitulos.name}}</h3>
                             <p class="card-text"><strong> {{capitulos.air_date}}</strong></p>
                             <p class="card-text">Presentation:</p>
-                            <select class="form-control " onchange="window.open(this.value) "  style="border-radius: 16px 16px 16px;">
+                            <select class="form-control " onchange="window.open(this.value)"  style="border-radius: 16px 16px 16px;">
                                 <option value="">Personajes</option>
                                 <option *ngFor="let capitulos of capitulos.characters">{{capitulos}}</option>
                             </select>
