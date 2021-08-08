@@ -21,6 +21,10 @@ export class CapitulosComponent implements OnInit {
     console.log(this.capitulosseleccion)
   }
 
+  change_url(url:string){
+    console.log(url)
+  }
+
   //cargar capitulos
   Cargarcapitulos(){
   try {

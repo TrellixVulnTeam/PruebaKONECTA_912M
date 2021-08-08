@@ -19,7 +19,7 @@
                             <p class="card-text"><strong>{{personajes.status}}-{{personajes.species}}</strong></p>
                             <p class="card-text">{{personajes.gender}}</p>
     
-                            <select class="form-control "  onchange="location = this.value;"   style="border-radius: 16px 16px 16px;">
+                            <select class="form-control " onchange="window.open(this.value)"   style="border-radius: 16px 16px 16px;">
                                 <option value="">Capitulos</option>
                                 <option *ngFor="let personajes of personajes.episode">
                                     {{personajes}}
