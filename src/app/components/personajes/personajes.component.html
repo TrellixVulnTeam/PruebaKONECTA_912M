@@ -1,32 +1,36 @@
-<div class="row"  >
-   
-    <div class="col-md-6  col-sm-12 search__bar" >
-        <input type="text" id="buscar" style="border: 0px;" placeholder="Escriba el nombre, estado, especie o genero para buscar " class="form-control shadow-none" name="personajesfiltro"  [(ngModel)]="personajesfiltro">
+<div class="row">
+
+    <div class="col-md-6  col-sm-12 search__bar">
+        <input type="text" id="buscar" style="border: 0px; background-color: #bee4f6;  font-weight: 500;"
+            placeholder="Escriba el nombre, estado, especie o genero para buscar " class="form-control shadow-none"
+            name="personajesfiltro" [(ngModel)]="personajesfiltro">
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-6 p-4" *ngFor="let personajes of personajes | personajes:personajesfiltro">
         <section>
-            <div class="card mb-3">
+            <div class="card mb-3 animate__animated animate__bounceInLeft" style="border-radius: 10px">
                 <div class="row ">
-                    <div class="col-md-4" >
-                        <img [src]="personajes.image" id="img" style="   border-radius: 13px 13px 0px; " class="card-img" alt="...">
+                    <div class="col-md-4">
+                        <img [src]="personajes.image" id="img" style="   border-radius: 10px 10px 0px; "
+                            class="card-img" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h3 class="card-title">{{personajes.name}}</h3>
                             <p class="card-text"><strong>{{personajes.status}}-{{personajes.species}}</strong></p>
                             <p class="card-text">{{personajes.gender}}</p>
-    
-                            <select class="form-control " onchange="window.open(this.value)"   style="border-radius: 16px 16px 16px;">
+
+                            <select class="form-control " (change)="onchangeSelect($event)"
+                                style="border-radius: 5px 5px 5px;">
                                 <option value="">Capitulos</option>
                                 <option *ngFor="let personajes of personajes.episode">
                                     {{personajes}}
                                 </option>
-                                
+
                             </select>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -34,3 +38,18 @@
         </section>
     </div>
 </div>
+
+
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      This is a modal.
+    </div>
+  </ng-template>
+  

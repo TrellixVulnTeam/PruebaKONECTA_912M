@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes/personajes.service'
 import { Personajes } from '../../Models/personajes'
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+declare var $:any;
+
 @Component({
   selector: 'app-personajes',
   templateUrl: './personajes.component.html',
@@ -10,7 +13,7 @@ export class PersonajesComponent implements OnInit {
 
   personajes: any
   personajesfiltro = ""
-  constructor(private personajesservice: PersonajesService) { }
+  constructor(private personajesservice: PersonajesService,private modalService: NgbModal,) { }
 
   ngOnInit(): void {
     this.CargarPersonajes()
@@ -30,5 +33,15 @@ export class PersonajesComponent implements OnInit {
       console.error('no se pudieron obtener datos')
     }
 
+  }
+
+  onchangeSelect(event:any){
+    var value = event.target.value;
+    $('#modalPersonajes').modal('show')
+
+    
+  }
+  openLg(content: any) {
+    this.modalService.open(content, { size: 'sm', centered: true });
   }
 }

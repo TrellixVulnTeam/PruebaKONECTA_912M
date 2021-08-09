@@ -3,8 +3,12 @@
 	box-shadow: none;
 	font-size: 1rem;
 }
+body,html{
+	height: 100%;
+}
 body{
-	background-color: #FFFFFF;
+	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+
 	color: #14213d;
 	font-family: 'Roboto', sans-serif
 }

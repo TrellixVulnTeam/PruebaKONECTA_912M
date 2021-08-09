@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-6  col-sm-12 search__bar">
-        <input type="text"  style="border: 0px;" id="buscar" placeholder="Escriba  nombre o fecha de presentacion para buscar "
+        <input type="text"  style="border: 0px; background-color: #bee4f6; font-weight: 500;" id="buscar" placeholder="Escriba  nombre o fecha de presentacion para buscar "
             class="form-control shadow-none" name="capitulosfiltro" [(ngModel)]="capitulosfiltro">
     </div>
 </div>
 <div class="row">
     <div class="col-md-6 p-4" *ngFor="let capitulos of capitulos | capitulos:capitulosfiltro">
         <section>
-            <div class="card mb-3">
+            <div class="card mb-3 animate__animated animate__bounceInLeft">
                 <div class="row ">
                     <div class="col-md-12">
                         <div class="card-body">
