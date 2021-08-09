@@ -9,9 +9,9 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./personajes.component.css']
 })
 export class PersonajesComponent implements OnInit {
-  capitulos: any
-  personajes: any
-  personajesfiltro = ""
+  capitulos: any;
+  personajes: any;
+  personajesfiltro = "";
   constructor(private personajesservice: PersonajesService, config: NgbModalConfig, private modalService: NgbModal,) { }
 
   ngOnInit(): void {
@@ -23,9 +23,9 @@ export class PersonajesComponent implements OnInit {
     try {
       let array: any
       this.personajesservice.CargarPersonajes().subscribe(res => {
-        array = res
-        let personajes2: Personajes[] = array.results
-        this.personajes = personajes2
+        array = res;
+        let personajes2: Personajes[] = array.results;
+        this.personajes = personajes2;
       })
 
     } catch (error) {
@@ -38,7 +38,7 @@ export class PersonajesComponent implements OnInit {
     var value = event.target.value;
     this.personajesservice.cargarInfo(value).subscribe(res => {
       this.capitulos = res;
-      console.log(this.capitulos)
+
     })
     this.modalService.open(content);
   }
