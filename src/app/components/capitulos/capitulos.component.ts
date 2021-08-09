@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes/personajes.service'
 import { Capitulos } from '../../Models/capitulos'
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Personajes } from '../../Models/personajes'
+
 @Component({
   selector: 'app-capitulos',
   templateUrl: './capitulos.component.html',
@@ -38,7 +38,6 @@ export class CapitulosComponent implements OnInit {
   }
 
   onchangeSelect(content: any, event: any) {
-     let array: any
     var value = event.target.value;
     // $('#modalPersonajes').modal('show')
     this.personajesservice.cargarInfo(value).subscribe(res => {

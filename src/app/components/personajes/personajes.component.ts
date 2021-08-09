@@ -9,10 +9,10 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./personajes.component.css']
 })
 export class PersonajesComponent implements OnInit {
-  capitulos:any
+  capitulos: any
   personajes: any
   personajesfiltro = ""
-  constructor(private personajesservice: PersonajesService,config: NgbModalConfig, private modalService: NgbModal,) { }
+  constructor(private personajesservice: PersonajesService, config: NgbModalConfig, private modalService: NgbModal,) { }
 
   ngOnInit(): void {
     this.CargarPersonajes()
@@ -34,18 +34,17 @@ export class PersonajesComponent implements OnInit {
 
   }
 
-  onchangeSelect(content:any,event:any){
-   var value = event.target.value;
-    // $('#modalPersonajes').modal('show')
-      this.personajesservice.cargarInfo(value).subscribe(res => {
-        this.capitulos =res;
-        console.log(this.capitulos)
-      })
+  onchangeSelect(content: any, event: any) {
+    var value = event.target.value;
+    this.personajesservice.cargarInfo(value).subscribe(res => {
+      this.capitulos = res;
+      console.log(this.capitulos)
+    })
     this.modalService.open(content);
   }
 
-  cerrarModal(){
+  cerrarModal() {
     this.modalService.dismissAll();
   }
- 
+
 }
