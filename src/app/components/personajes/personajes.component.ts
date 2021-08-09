@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { PersonajesService } from '../../services/personajes/personajes.service'
 import { Personajes } from '../../Models/personajes'
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-declare var $:any;
 
 @Component({
   selector: 'app-personajes',
@@ -10,10 +9,10 @@ declare var $:any;
   styleUrls: ['./personajes.component.css']
 })
 export class PersonajesComponent implements OnInit {
-
+  capitulos:any
   personajes: any
   personajesfiltro = ""
-  constructor(private personajesservice: PersonajesService,private modalService: NgbModal,) { }
+  constructor(private personajesservice: PersonajesService,config: NgbModalConfig, private modalService: NgbModal,) { }
 
   ngOnInit(): void {
     this.CargarPersonajes()
@@ -35,13 +34,18 @@ export class PersonajesComponent implements OnInit {
 
   }
 
-  onchangeSelect(event:any){
-    var value = event.target.value;
-    $('#modalPersonajes').modal('show')
+  onchangeSelect(content:any,event:any){
+   var value = event.target.value;
+    // $('#modalPersonajes').modal('show')
+      this.personajesservice.cargarInfo(value).subscribe(res => {
+        this.capitulos =res;
+        console.log(this.capitulos)
+      })
+    this.modalService.open(content);
+  }
 
-    
+  cerrarModal(){
+    this.modalService.dismissAll();
   }
-  openLg(content: any) {
-    this.modalService.open(content, { size: 'sm', centered: true });
-  }
+ 
 }

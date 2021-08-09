@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
-
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
@@ -25,7 +25,8 @@ import { CapitulosPipe } from './pipes/capitulos/capitulos.pipe';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

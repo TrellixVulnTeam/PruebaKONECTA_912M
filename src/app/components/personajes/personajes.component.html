@@ -22,7 +22,7 @@
                             <p class="card-text"><strong>{{personajes.status}}-{{personajes.species}}</strong></p>
                             <p class="card-text">{{personajes.gender}}</p>
 
-                            <select class="form-control " (change)="onchangeSelect($event)"
+                            <select class="form-control " (change)="onchangeSelect(template,$event)"
                                 style="border-radius: 5px 5px 5px;">
                                 <option value="">Capitulos</option>
                                 <option *ngFor="let personajes of personajes.episode">
@@ -43,13 +43,22 @@
 
 <ng-template #template>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Modal</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <h4 class="modal-title pull-left">Capitulos:</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
-      This is a modal.
+        <div class="card mb-3 animate__animated animate__bounceInLeft" >
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h3 class="card-title">{{capitulos?.name}}</h3>
+                        <p class="card-text"><strong> {{capitulos?.air_date}}</strong></p>
+                        <p class="card-text">{{capitulos?.episode}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </ng-template>
-  
+</ng-template>

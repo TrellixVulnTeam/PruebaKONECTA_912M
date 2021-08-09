@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonajesService } from '../../services/personajes/personajes.service'
 import { Capitulos } from '../../Models/capitulos'
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Personajes } from '../../Models/personajes'
 @Component({
   selector: 'app-capitulos',
   templateUrl: './capitulos.component.html',
@@ -8,10 +10,11 @@ import { Capitulos } from '../../Models/capitulos'
 })
 export class CapitulosComponent implements OnInit {
   capitulos: any
+  personajes: any
   array2 = []
   //capitulos2=[]
   capitulosfiltro = ""
-  constructor(private personajesservice: PersonajesService) { }
+  constructor(private personajesservice: PersonajesService, config: NgbModalConfig, private modalService: NgbModal,) { }
 
   ngOnInit(): void {
     this.Cargarcapitulos();
@@ -32,6 +35,20 @@ export class CapitulosComponent implements OnInit {
       console.error('so se pudieron obtener datos')
     }
 
+  }
+
+  onchangeSelect(content: any, event: any) {
+     let array: any
+    var value = event.target.value;
+    // $('#modalPersonajes').modal('show')
+    this.personajesservice.cargarInfo(value).subscribe(res => {
+      this.personajes = res;
+      console.log(this.personajes)
+    })
+    this.modalService.open(content);
+  }
+  cerrarModal() {
+    this.modalService.dismissAll();
   }
 
 }

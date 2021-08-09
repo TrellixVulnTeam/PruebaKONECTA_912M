@@ -17,5 +17,9 @@ export class PersonajesService {
     return this.http.get(`${this.API_URI}/episode/`)
   }
 
+  cargarInfo(url:any){
+    return this.http.get(url)
+  }
+
 
 }
